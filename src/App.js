@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Searchbar from './components/SearchBar/SearchBar.js';
+import SearchResults from './components/SearchResult/SearchResult.js';
+import Playlist from './components/PlayList/Playlist.js';
+import TrackList from './components/TrackList/Tracklist.js';
 import './App.css';
 
+const trackLists = [{name: 'Just the way you are', artist: 'Bruno Mars', album:'album 1', id: 1},
+                    {name: 'talking to the moon', artist: 'Bruno Mars', album:'album 1', id: 2},
+                    {name: 'Versace', artist: 'Bruno Mars', album:'album 1', id: 3}
+                  ]
+
 function App() {
+  const [playlistName, setPlaylistName] = useState([]);
+  const addToPlayList = (id) => {
+    const newTrack = trackLists.find((track) => track.id === id);
+    setPlaylistName((prev) => [...prev, newTrack]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='mainWrapper'>
+      <h1 className='title'>Ja<span className="highlight">mmm</span>ing</h1>
+      <Searchbar />
+      <div className='listsWrapper'>
+        <SearchResults addToPlayList={addToPlayList}/>
+        <Playlist playlist={playlistName} />
+      </div>
     </div>
+
+
   );
 }
 
