@@ -16,3 +16,83 @@
     letter-spacing: 2px;
     height: 50px;
 }
+
+.playListTrackInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 0 20px;
+}
+
+.playListTrackInfo h3 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 0;
+}
+
+.playListTrackInfo p {
+        font-size: 15px;
+        font-weight: 100;
+        margin-top: 10px;
+}
+
+.playListTrackInfo:hover {
+    background-color: #242424;
+}
+
+.defaultMessage {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.savePlaylistButton {
+    background-color:#1DB954 ;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    border: 0;
+    letter-spacing: 2px;
+    font-family: 'Roboto', sans-serif;
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 35px auto;
+}
+.savePlaylistButton:hover {
+    background-color: #4EE1A0;
+}
+
+.removeTrackButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1DB954;
+    border: 0;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    font-weight: bold;
+}
+
+.playlistInput {
+    background-color: #151515;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    border: 0;
+    border-bottom: 1px solid white;
+    display: flex;
+    text-align: center;
+    margin: 0px 20px;
+    letter-spacing: 2px;
+    height: 50px;
+
+
+}

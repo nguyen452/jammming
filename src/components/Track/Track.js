@@ -6,7 +6,6 @@ function Track(props) {
     const handleAdd = () => {
         addToPlayList(id);
     };
-    console.log(id)
 
     return (
         <div className="trackWrapper" key={id}>

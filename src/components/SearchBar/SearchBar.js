@@ -1,15 +1,15 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 import "./SearchBar.css";
 
+function SearchBar({ handleSearch }) {
 
-function SearchBar(props) {
     return (
-        <form className="searchWrapper">
-            <input className="searchInput" placeholder="Enter A Song, Album, or Artist" type="text" />
+        <form className="searchWrapper" onSubmit={handleSearch}>
+            <input className="searchInput" name='search' placeholder="Enter A Song, Album, or Artist" type="text" />
             <button className="searchButton" type="submit"><span className="searchIcon"><FontAwesomeIcon icon={faSearch} /></span> Search</button>
-
         </form>
     )
 }
