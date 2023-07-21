@@ -3,17 +3,15 @@ import "./Playlist.css"
 
 
 function Playlist(props) {
-    const { playlist, removeTrack, handleSendPlaylist } = props;
+    const { playlistName, setPlaylistName, playlist, removeTrack, handleSendPlaylist } = props;
 
-    const handleClick = () => {
-        setPlaylistName(<input className="playlistInput" type="text" defaultValue="New Playlist" />);
+    const handleChange = (event) => {
+        setPlaylistName(event.target.value);
     };
-
-    const [playlistName, setPlaylistName] = useState(<h2 onClick={handleClick}>New Playlist</h2>);
 
     return (
         <div className="playlistWrapper">
-            {playlistName}
+            <input className="playlistInput" type= 'text' value={playlistName} onChange={handleChange}></input>
             <div>
                 {playlist.length === 0 ? <p className="defaultMessage">Add a Song to your playlist.</p> : playlist.map((track) => {
                     return (

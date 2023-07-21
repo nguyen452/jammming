@@ -4,6 +4,7 @@ const redirect_uri = 'http://localhost:3000/';
 
 url += '?response_type=token';
 url += '&client_id=' + encodeURIComponent(client_id);
+url += '&scope=' + encodeURIComponent('playlist-modify-private');
 url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
 
 
@@ -19,6 +20,7 @@ const accessToken = window.location.hash.substring(startingIndex + 1, endingInde
 //3. and set that data to a variable called track
 
 const searchEndpoint = 'https://api.spotify.com/v1/search';
+
 const sendSearch = async(endpoint, userEntry, types) => {
      let urlEndpoint = endpoint + `?q=${encodeURIComponent(userEntry)}` + `&type=${types}`;
      const searchResponse = await fetch(urlEndpoint, {

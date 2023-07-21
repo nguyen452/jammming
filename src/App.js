@@ -11,21 +11,8 @@ import { getUserID, createPlaylist, addTracksToPlaylist } from './sendPlaylist.j
 function App() {
   const [playlistTrack, setPlaylistTrack] = useState([]);
   const [searchedTracklist, setSearchedTracklist] = useState([]);
+  const [playlistName, setPlaylistName] = useState('New Playlist');
 
-
-  const sendPlaylist = async() => {
-    // get user id
-    const endpoint = 'https://api.spotify.com/v1/me'
-    const response = await fetch(endpoint, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    })
-    const JSONResponse = await response.json();
-    const userID = JSONResponse.id;
-    // make a post request to spotify
-    // after request gets sent erase the playlist and name and start over
-  }
 
   const addToPlayList = (id) => {
     if (playlistTrack.find((track) => track.id === id)){
@@ -67,24 +54,26 @@ const handleSendPlaylist = async (event) => {
   const userID = await getUserID();
   // make a post request to spotify to create playlist
   const playlistID = await createPlaylist(userID, playlistName);
-  console.log(playlistID);
   // after request gets sent erase the playlist and name and start over
   const trackURIs = playlistTrack.map((track) => `spotify:track:${track.id}` );
   addTracksToPlaylist(playlistID, trackURIs);
   setPlaylistTrack([]);
   setSearchedTracklist([]);
+  setPlaylistName("New Playlist");
 }
 
 
 
   return (
     <div className='mainWrapper'>
-      <h1 className='title'>Ja<span className="highlight">mmm</span>ing</h1>
+      <nav className='navbar'>
+        <h1 className='title'>Ja<span className="highlight">mmm</span>ing</h1>
+        <a className='login' href={url} style={{color:"white"}}> Login</a>
+      </nav>
       <Searchbar handleSearch = {handleSearch} />
-      <button><a href={url} style={{color:"white"}}> login</a></button>
       <div className='listsWrapper'>
         <SearchResults addToPlayList={addToPlayList} userSearchResults = {searchedTracklist}/>
-        <Playlist playlist={playlistTrack} removeTrack={removeTrack} handleSendPlaylist = {handleSendPlaylist} />
+        <Playlist playlistName = {playlistName} setPlaylistName = {setPlaylistName} playlist={playlistTrack} removeTrack={removeTrack} handleSendPlaylist = {handleSendPlaylist} />
       </div>
     </div>
 

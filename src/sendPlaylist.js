@@ -15,7 +15,7 @@ const getUserID = async () => {
   }
 };
 
-const createPlaylist = async ( playlistName) => {
+const createPlaylist = async ( userID, playlistName) => {
   try {
     const data = {
       name: playlistName,
