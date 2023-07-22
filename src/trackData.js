@@ -22,7 +22,7 @@ const accessToken = window.location.hash.substring(startingIndex + 1, endingInde
 const searchEndpoint = 'https://api.spotify.com/v1/search';
 
 const sendSearch = async(endpoint, userEntry, types) => {
-     let urlEndpoint = endpoint + `?q=${encodeURIComponent(userEntry)}` + `&type=${types}`;
+     let urlEndpoint = endpoint + `?q=${encodeURIComponent(userEntry)}&type=${types}`;
      const searchResponse = await fetch(urlEndpoint, {
           method: 'GET',
           headers: {

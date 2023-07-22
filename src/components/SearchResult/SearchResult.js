@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { trackLists } from "../../trackData.js";
+import React from "react";
 import Tracklist from "../TrackList/Tracklist.js";
 import "./SearchResult.css";
 

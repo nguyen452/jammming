@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Playlist.css"
-
 
 function Playlist(props) {
     const { playlistName, setPlaylistName, playlist, removeTrack, handleSendPlaylist } = props;

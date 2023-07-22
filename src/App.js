@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import Searchbar from './components/SearchBar/SearchBar.js';
 import SearchResults from './components/SearchResult/SearchResult.js';
 import Playlist from './components/PlayList/Playlist.js';
-import TrackList from './components/TrackList/Tracklist.js';
 import './App.css';
-import { url, sendSearch, accessToken, searchEndpoint } from './trackData.js';
+import { url, sendSearch, searchEndpoint } from './trackData.js';
 import { getUserID, createPlaylist, addTracksToPlaylist } from './sendPlaylist.js';
 
 

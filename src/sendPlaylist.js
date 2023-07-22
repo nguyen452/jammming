@@ -43,12 +43,11 @@ const createPlaylist = async ( userID, playlistName) => {
 
 const addTracksToPlaylist = async (playlistID, trackURIs) => {
   try {
-    const userId = await getUserID();
     const endpoint = `https://api.spotify.com/v1/playlists/${playlistID}/tracks`;
     const data = {
       uris: trackURIs
     }
-    const response = await fetch(endpoint, {
+    await fetch(endpoint, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${accessToken}`,
