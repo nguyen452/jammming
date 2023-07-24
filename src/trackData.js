@@ -1,6 +1,6 @@
 const client_id = 'e928427831834fdc9dce2c364501f7af';
 let url = 'https://accounts.spotify.com/authorize';
-const redirect_uri = 'http://localhost:3000/';
+const redirect_uri = 'https://spotjammming.netlify.app';
 
 url += '?response_type=token';
 url += '&client_id=' + encodeURIComponent(client_id);
